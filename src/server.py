@@ -8,7 +8,7 @@ from src.blueprints.api import api_bp
 
 # Server instantiation and configuration
 server = Flask(__name__)
-server.config['JSON_SORT_KEYS'] = False
+server.json.sort_keys = False
 CORS(server)
 
 # Blueprint registration
@@ -17,8 +17,8 @@ server.register_blueprint(
     url_prefix="/api"
 )
 
-@server.get("/")
-def root():
+@server.get("/hello")
+def hello():
     """
     Simple route to check server status
     """
